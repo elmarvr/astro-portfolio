@@ -1,0 +1,49 @@
+---
+import Section from "@/ui/Section.astro";
+import SectionTitle from "@/ui/SectionTitle.astro";
+import Image from "@/ui/Image.astro";
+import { Content } from "@/content/about.md"
+---
+
+<Section id="about">
+  <div class="mx-auto flex flex-col sm:grid sm:grid-cols-[3fr_2fr] gap-x-12 w-full max-w-[1000px]">
+    <div class="overflow-hidden">
+      <SectionTitle class="title">Wie ik ben</SectionTitle>
+    </div>
+
+
+    <div class="content flex flex-col col-start-1 pb-8 sm:pb-0 prose prose-dark">
+      <Content />
+    </div>
+
+    <Image
+      height={200}
+      aspectRatio="1:1"
+      class="image aspect-square w-full"
+      alt="portret van Elmar"
+      src="https://source.unsplash.com/900x900/?portrait"
+    />
+  </div>
+</Section>
+
+<script>
+import { animateInView } from "@/utils/animation";
+
+animateInView("#about .title", {
+  opacity: [0, 1],
+  translateY: [50, 0],
+})
+
+animateInView("#about .content", {
+  translateX: [-100, 0],
+  opacity: [0, 1],
+})
+
+animateInView("#about .image", {
+  translateX: [100, 0],
+  opacity: [0, 1],
+})
+</script>
+
+
+

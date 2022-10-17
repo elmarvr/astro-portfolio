@@ -1,0 +1,32 @@
+---
+import Section from "@/ui/Section.astro";
+import SectionTitle from "@/ui/SectionTitle.astro";
+import Skill, { Props } from "@/ui/Skill.astro";
+
+const skills = await Astro.glob<Props>("../content/skills/*.md");
+---
+
+<Section id="skills">
+  <SectionTitle class="title text-center">Waar ik mee gewerkt heb</SectionTitle>
+  <div class="grid grid-cols-3 gap-8">
+    {skills.map((skill) => <Skill class="item" {...skill.frontmatter}>
+      <skill.Content />
+    </Skill>)}
+  </div>
+</Section>
+
+<script>
+import { animateInView } from "@/utils/animation";
+import anime from "animejs";
+
+animateInView("#skills .title", {
+  translateX: [-100, 0],
+  opacity: [0, 1],
+})
+
+animateInView("#skills .grid", "#skills .item", {
+  translateY: [100, 0],
+  opacity: [0, 1],
+  delay: anime.stagger(100)
+})
+</script>

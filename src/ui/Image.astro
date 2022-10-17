@@ -1,0 +1,35 @@
+---
+import { Image } from "@astrojs/image/components"
+
+export interface Props extends astroHTML.JSX.ImgHTMLAttributes {
+  src: string;
+  alt: string;
+  height?: number;
+  aspectRatio?: string;
+}
+
+const { 
+  src, 
+  alt, 
+  class: className = "", 
+  "class:list": classList, 
+  width, 
+  height,  
+  aspectRatio, 
+  ...props 
+} = Astro.props;
+---
+
+<div
+  {...props} 
+  class:list={[className, classList, "bg-gradient-to-l from-violet-500 to-fuchsia-500 p-1 rounded overflow-hidden"]}
+>
+  <Image
+    aspectRatio={aspectRatio}
+    width={width}
+    height={height}
+    src={src}
+    alt={alt}
+    class="rounded h-full w-full"
+  />
+</div>

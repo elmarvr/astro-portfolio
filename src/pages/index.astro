@@ -1,0 +1,31 @@
+---
+
+import Hero from "@/sections/Hero.astro";
+import Skills from "@/sections/Skills.astro"
+import About from "@/sections/About.astro";
+import Work from "@/sections/Work.astro";
+---
+
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="bg-slate-900 text-slate-400">
+    <main>
+      <Hero />
+      <About />
+      <Skills />
+      <Work />
+      
+      <!-- <Navbar />
+      <Hero />
+      <About client:visible {...about} />
+      <Skills client:visible skills={skills}/>
+      <Work client:visible projects={projects} /> -->
+    </main>
+	</body>
+</html>
