@@ -1,5 +1,10 @@
-<section id="hero" class="min-h-screen bg-hero flex items-center">
-  <div class="container">
+---
+import MatrixCanvas from "./MatrixCanvas.astro";
+
+---
+
+<section id="hero" class="min-h-screen relative flex flex-col">
+  <div class="container absolute top-1/2 -translate-y-1/2">
     <div class="inline-flex flex-col items-start gap-5 pb-16 sm:pb-0">
       <h1 class="text-base text-fuchsia-500">Hoi, mijn naam is</h1>
       <h2 class="text-5xl font-bold text-slate-300">Elmar van Riet.</h2>
@@ -17,6 +22,12 @@
       </div>
     </div>
   </div>
+
+
+  <div class="w-1/2 ml-auto flex-1 relative">
+    <MatrixCanvas />
+  </div>
+
 </section>
 
 

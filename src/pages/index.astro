@@ -1,9 +1,12 @@
 ---
 
-import Hero from "@/sections/Hero.astro";
+import Hero from "@/sections/hero/Hero.astro";
 import Skills from "@/sections/Skills.astro"
 import About from "@/sections/About.astro";
 import Work from "@/sections/Work.astro";
+import Nav from "@/ui/Nav.astro";
+import NavLink from "@/ui/NavLink.astro";
+import Journey from "@/sections/Journey.astro";
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -15,17 +18,20 @@ import Work from "@/sections/Work.astro";
 		<title>Astro</title>
 	</head>
 	<body class="bg-slate-900 text-slate-400">
-    <main>
+    <Nav>
+      <NavLink icon="tabler:home" href="#hero">Home</NavLink>
+      <NavLink icon="tabler:user" href="#about">Over mij</NavLink>
+      <NavLink icon="tabler:device-desktop"  href="#skills">Skills</NavLink>
+      <NavLink icon="tabler:briefcase" href="#work">Projects</NavLink>
+      <NavLink icon="tabler:mail" href="#contact">Contact</NavLink>
+    </Nav>
+
+    <main class="overflow-x-hidden">
       <Hero />
       <About />
       <Skills />
+      <Journey />
       <Work />
-      
-      <!-- <Navbar />
-      <Hero />
-      <About client:visible {...about} />
-      <Skills client:visible skills={skills}/>
-      <Work client:visible projects={projects} /> -->
     </main>
 	</body>
 </html>

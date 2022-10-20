@@ -6,10 +6,10 @@ import Skill, { Props } from "@/ui/Skill.astro";
 const skills = await Astro.glob<Props>("../content/skills/*.md");
 ---
 
-<Section id="skills">
-  <SectionTitle class="title text-center">Waar ik mee gewerkt heb</SectionTitle>
-  <div class="grid grid-cols-3 gap-8">
-    {skills.map((skill) => <Skill class="item" {...skill.frontmatter}>
+<Section id="skills" class="py-20">
+  <SectionTitle class="title sm:text-center">Mijn skills</SectionTitle>
+  <div class="items gap-8 w-full overflow-x-auto py-4 snap-x flex sm:grid sm:grid-cols-3 sm:py-0 overflow-y-hidden sm:overflow-y-visible sm:overflow-x-visible">
+    {skills.map((skill) => <Skill class="item flex-shrink-0 snap-center w-9/12 sm:w-auto" {...skill.frontmatter}>
       <skill.Content />
     </Skill>)}
   </div>
@@ -24,7 +24,7 @@ animateInView("#skills .title", {
   opacity: [0, 1],
 })
 
-animateInView("#skills .grid", "#skills .item", {
+animateInView("#skills .items", "#skills .item", {
   translateY: [100, 0],
   opacity: [0, 1],
   delay: anime.stagger(100)

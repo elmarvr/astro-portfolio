@@ -1,0 +1,147 @@
+<canvas class="absolute top-0" id="matrix" />
+
+<script>
+import { inView } from "@/utils/inView";
+import anime, { AnimeInstance } from "animejs"
+
+const canvas = document.getElementById("matrix") as HTMLCanvasElement;
+const ctx = canvas.getContext("2d")!
+
+
+
+const createSymbol = (x: number, y: number, speed: number) => {
+
+  const randomSymbol = () => String.fromCharCode(0x30A0 + Math.random() * 96);
+
+  const symbol = randomSymbol();
+  const color = "#d946ef";
+  
+  return {
+    x,
+    y,
+    symbol,
+    color,
+    speed,
+    opacity: Math.random() + 0.3,
+
+    draw(t: number) {
+      if (t % anime.random(10, 20) === 0) {
+        this.symbol = randomSymbol();
+      }
+
+      ctx.font = "20px sans"
+
+      ctx.fillStyle = this.color
+
+      ctx.globalAlpha = this.opacity;
+      ctx.fillText(this.symbol, this.x, this.y)
+      ctx.globalAlpha = 1;
+    },
+  }
+};
+
+type Symbol = ReturnType<typeof createSymbol>;
+
+// Anime is badly typed
+const toSymbol = (el: HTMLElement) => {
+  return el as unknown as Symbol;
+};
+
+const createAnims = () => {
+  return Array.from({ length: Math.floor(canvas.width / 32) }, (_, i) => {
+    const x = i * 32;
+    const speed = anime.random(3, 5) / 10
+    const yOffset = anime.random(0, 300);
+
+
+    const symbols = Array.from({ length: anime.random(15, 25) }, (_, j) => {
+      const y = -yOffset + j * -32;
+    
+      return createSymbol(x, y, speed)
+    })
+
+    const distance = canvas.height + yOffset;
+
+    return anime({
+      targets: symbols,
+    
+      y: (el: Symbol) => distance + el.y,
+
+      opacity: {
+        value: 0,
+        easing: "easeInExpo",
+      },
+    
+      duration: (el) => {
+      
+        return distance / toSymbol(el).speed;
+      },
+
+      autoplay: false,
+      loop: true,
+      easing: "linear",
+
+      update(anim) {
+        const t = Math.round(anim.currentTime);
+      
+        anim.animatables.forEach((anim) => {
+          toSymbol(anim.target).draw(t);
+        })
+      },
+    })  
+  });
+}
+
+let anims: AnimeInstance[] = []
+let frame = 0;
+
+
+const play = () => {
+  anims = createAnims();
+  animate();
+};
+
+const reset = () => {
+  cancelAnimationFrame(frame);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+}
+
+const animate = (t = 0) => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  anims.forEach((anim) => {
+    anim.tick(t)
+  });
+
+  frame = requestAnimationFrame(animate);
+}
+
+const setCanvasSize = () => {
+  canvas.width = canvas.parentElement!.clientWidth;
+  canvas.height = canvas.parentElement!.clientHeight;
+
+};
+
+window.addEventListener("resize", () => {
+  reset();
+  setCanvasSize();
+  play();
+});
+
+
+inView(canvas, () => {
+  setCanvasSize();
+  play();
+
+
+  return () => {
+    reset();
+  }
+})
+
+
+
+
+
+</script>

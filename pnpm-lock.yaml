@@ -6,11 +6,14 @@ specifiers:
   '@astrojs/tailwind': ^2.0.2
   '@tailwindcss/typography': ^0.5.7
   '@types/animejs': ^3.1.5
+  '@types/date-fns': ^2.6.0
   animejs: ^3.2.1
   astro: ^1.4.6
   astro-icon: ^0.7.3
+  date-fns: ^2.29.3
   prettier-plugin-astro: ^0.6.0
   sharp: '>=0.31.0'
+  simplex-noise: ^4.0.1
   tailwindcss: ^3.0.24
   tailwindcss-fluid-type: ^1.3.3
   ts-toolbelt: ^9.6.0
@@ -22,12 +25,15 @@ dependencies:
   animejs: 3.2.1
   astro: 1.4.6
   astro-icon: 0.7.3
+  date-fns: 2.29.3
   sharp: 0.31.1
+  simplex-noise: 4.0.1
   tailwindcss: 3.1.8
 
 devDependencies:
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
   '@types/animejs': 3.1.5
+  '@types/date-fns': 2.6.0
   prettier-plugin-astro: 0.6.0
   tailwindcss-fluid-type: 1.3.3_tailwindcss@3.1.8
   ts-toolbelt: 9.6.0
@@ -669,6 +675,13 @@ packages:
       '@babel/types': 7.19.4
     dev: false
 
+  /@types/date-fns/2.6.0:
+    resolution: {integrity: sha512-9DSw2ZRzV0Tmpa6PHHJbMcZn79HHus+BBBohcOaDzkK/G3zMjDUDYjJIWBFLbkh+1+/IOS0A59BpQfdr37hASg==}
+    deprecated: This is a stub types definition for date-fns (https://github.com/date-fns/date-fns). date-fns provides its own type definitions, so you don't need @types/date-fns installed!
+    dependencies:
+      date-fns: 2.29.3
+    dev: true
+
   /@types/debug/4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
@@ -1236,6 +1249,10 @@ packages:
     resolution: {integrity: sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==}
     engines: {node: '>= 12'}
     dev: false
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -3845,6 +3862,10 @@ packages:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
     dependencies:
       is-arrayish: 0.3.2
+    dev: false
+
+  /simplex-noise/4.0.1:
+    resolution: {integrity: sha512-zl/+bdSqW7HJOQ0oDbxrNYaF4F5ik0i7M6YOYmEoIJNtg16NpvWaTTM1Y7oV/7T0jFljawLgYPS81Uu2rsfo1A==}
     dev: false
 
   /sirv/2.0.2:

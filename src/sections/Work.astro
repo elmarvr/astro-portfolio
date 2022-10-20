@@ -30,18 +30,27 @@ animateInView("#work .title", {
 })
 
 
+anime.set("[data-project] .column", {
+  opacity: 0
+})
+
 inView("[data-project]", ({ target }) => {
   if (target instanceof HTMLElement) {
     const index = parseInt(target.dataset.project ?? "-1")
     const reverse = index % 2 === 1;
 
+    
+
     anime({
       targets: `[data-project="${index}"] .column`,
-      opacity: 1,
+      opacity: [0, 1],
       translateX: [anime.stagger(reverse ? [100, -100] : [-100, 100]), 0],
       delay: anime.stagger(150),
       duration: 1000
     });
   }
-})
+}, 
+{
+  amount: 0.5
+});
 </script>
