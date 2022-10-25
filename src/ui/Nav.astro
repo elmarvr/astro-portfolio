@@ -1,9 +1,124 @@
-<nav class="fixed top-0 z-10 flex items-center justify-between w-full px-4 py-4 border-b h-15 sm:px-12 border-b-gray-800 backdrop-blur-md">
-  E
+---
+import LanguageSelect from "@/i18n/LanguageSelect.astro";
+import Icon from "astro-icon";
+---
 
-  <div class="flex gap-8 sm:gap-12">
+<nav class="fixed z-20 w-full backdrop-blur-md">
+  <div class="flex px-8 items-center justify-between w-full h-14 py-2.5 sm:px-12 border-b border-b-gray-800">
+    <div class="logo">E</div>
+    
+    <div class="flex items-center gap-6 sm:gap-12">
+
+      <div class="nav-items hidden sm:contents">
+        <slot />
+      </div>
+  
+
+      <LanguageSelect />
+
+      <button id="menu-button" class="block sm:hidden w-6 h-6 relative">
+        <Icon id="open-icon" name="tabler:menu-2" class="absolute top-0" />
+        <Icon id="close-icon" name="tabler:x" class="hidden absolute top-0" />
+      </button>
+    </div>  
+  </div>
+
+  <div class="menu-items hidden flex flex-col items-start gap-8 p-8">
     <slot />
   </div>
-</nav>
+</nav>  
+
+<script>
+import  { slideDown, slideRight } from "@/utils/animation"
+import { querySelector } from "@/utils/querySelector";
+import anime from "animejs";
+
+slideRight(".logo", {
+  duration: 500,
+})
+
+slideDown(".nav-items > *", {
+  duration: 450,
+  delay: anime.stagger(75, { start: 200 })
+});
 
 
+const menuItems = querySelector(".menu-items");
+const openIcon = querySelector("#open-icon");
+const closeIcon = querySelector("#close-icon");
+
+
+const timeline = anime.timeline({
+  autoplay: false
+})
+.add({
+  targets: openIcon,
+  duration: 200,
+  opacity: [1, 0],
+  scale: [1, 0.5],
+  easing: "linear",
+
+  changeBegin: () => {
+    openIcon.classList.remove("hidden");
+  },
+
+  changeComplete: ({ reversed }) => {
+    if (!reversed) {
+      openIcon.classList.add("hidden");
+    }
+  }
+})
+.add({
+  targets: closeIcon,
+  duration: 200,
+  opacity: [0, 1],
+  scale: [0.5, 1],
+  easing: "linear",
+
+  changeBegin: () => {
+    closeIcon.classList.add("hidden");
+  },
+
+  changeComplete: ({ reversed }) => {
+    if (!reversed) {
+      closeIcon.classList.remove("hidden");
+    }
+  }
+}, 0)
+.add({
+  targets: menuItems.children,
+  translateX: ["-100%", "0%"],
+  opacity: [0, 1],
+  delay: anime.stagger(50),
+  easing: "easeOutExpo",
+  duration: 200,
+
+  changeBegin: () => {
+    menuItems.classList.remove("hidden");
+    
+    querySelector("nav").classList.add("h-screen");
+    querySelector("body").classList.add("overflow-hidden");
+  },
+
+  changeComplete: ({ reversed }) => {
+    if (reversed) {
+      menuItems.classList.add("hidden");
+
+      querySelector("nav").classList.remove("h-screen");
+      querySelector("body").classList.remove("overflow-hidden");
+    }
+  }
+}, 0);
+
+
+const menuButton = querySelector("#menu-button");
+
+menuButton.addEventListener("click", () => {
+  if (timeline.began) {
+    timeline.reverse();
+  } 
+  
+  timeline.play();
+});
+
+</script>

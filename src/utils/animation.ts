@@ -2,42 +2,59 @@ import anime, { AnimeInstanceParams } from "animejs";
 import type { AnimeAnimParams } from "animejs";
 import { inView } from "./inView";
 
-type AnimeAnimParamsWithoutTargets = {
-  duration?: AnimeAnimParams["duration"];
-  delay?: AnimeAnimParams["delay"];
-  endDelay?: AnimeAnimParams["endDelay"];
-  elasticity?: AnimeAnimParams["elasticity"];
-  round?: AnimeAnimParams["round"];
-  keyframes?: AnimeAnimParams["keyframes"];
-  [AnyAnimatedProperty: string]: any;
+const DEFAULT_TRANSITION = {
+  duration: 1000,
+  easing: "easeOutExpo",
 };
 
-type AnimeParamsWithoutTargets = AnimeAnimParamsWithoutTargets & AnimeInstanceParams;
+type Target = NonNullable<AnimeAnimParams["targets"]>;
 
-export function animateInView(root: string, targets: string, params: AnimeParamsWithoutTargets): () => void;
-export function animateInView(targets: string, params: AnimeParamsWithoutTargets): () => void;
+type Transition = {
+  duration?: AnimeAnimParams["duration"];
+  delay?: AnimeAnimParams["delay"];
+  easing?: AnimeAnimParams["easing"];
+};
 
-export function animateInView(
-  targetsOrRoot: string,
-  targetsOrParams: AnimeParamsWithoutTargets | string,
-  maybeParams?: AnimeParamsWithoutTargets
-) {
-  const params = typeof targetsOrParams === "string" ? maybeParams : targetsOrParams;
-  const targets = typeof targetsOrParams === "string" ? targetsOrParams : targetsOrRoot;
+export function setTransparent(targets: Target) {
+  anime.set(targets, { opacity: 0 });
+}
 
-  const animation = anime({
+export function slideRight(targets: Target, transition?: Transition) {
+  anime({
     targets,
-    autoplay: false,
-    ...params,
+    translateX: [-100, 0],
+    opacity: [0, 1],
+    ...DEFAULT_TRANSITION,
+    ...transition,
   });
+}
 
-  return inView(
-    targetsOrRoot,
-    () => {
-      animation.play();
-    },
-    {
-      amount: 0.5,
-    }
-  );
+export function slideLeft(targets: Target, transition?: Transition) {
+  anime({
+    targets,
+    translateX: [100, 0],
+    opacity: [0, 1],
+    ...DEFAULT_TRANSITION,
+    ...transition,
+  });
+}
+
+export function slideUp(targets: Target, transition?: Transition) {
+  anime({
+    targets,
+    translateY: [100, 0],
+    opacity: [0, 1],
+    ...DEFAULT_TRANSITION,
+    ...transition,
+  });
+}
+
+export function slideDown(targets: Target, transition?: Transition) {
+  anime({
+    targets,
+    translateY: [-100, 0],
+    opacity: [0, 1],
+    ...DEFAULT_TRANSITION,
+    ...transition,
+  });
 }

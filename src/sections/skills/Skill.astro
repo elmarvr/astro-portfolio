@@ -1,11 +1,17 @@
 ---
 import { Icon } from "astro-icon";
 
-export interface Props {
+export interface SkillFrontmatter {
   icon: string;
   title: string;
+  name: string;
+}
+
+export interface SkillProps extends Omit<SkillFrontmatter, "name"> {
   class?: string;
 }
+
+type Props = SkillProps;
 
 const { icon, title, class: className = "" } = Astro.props;
 ---
@@ -16,7 +22,7 @@ const { icon, title, class: className = "" } = Astro.props;
     "flex flex-col items-start gap-4 p-4 rounded bg-gradient-to-tr from-slate-900 to-slate-800 border border-slate-800"
   ]}
 >
-  <Icon name={icon} size={40} />
+  <Icon name={icon} size={36} />
 
   <div class="pt-2">
     <p class="text-slate-300 font-medium pb-1">{title}</p>

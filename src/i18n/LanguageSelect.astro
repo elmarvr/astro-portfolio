@@ -1,0 +1,21 @@
+---
+import Icon from "astro-icon";
+import locales from "./locales.json";
+
+const locale = Astro.params.locale as keyof typeof locales;
+const localeOptions = Object.keys(locales);
+
+
+---
+
+<div class="relative group">
+  <select 
+    class="appearance-none bg-transparent cursor-pointer pr-4 h-full group-hover:text-fuchsia-500" 
+    onchange="location.href='/' + this.value + '/home'"
+  >
+    {localeOptions.map(option => (
+      <option selected={locale === option ? 'selected' : undefined} value={option}>{option.toUpperCase()}</option>
+    ))}
+  </select>
+  <Icon  name="tabler:chevron-down" class="absolute z-[-10] right-0 top-1/2 -translate-y-1/2 group-hover:text-fuchsia-500" size={16}/>
+</div>

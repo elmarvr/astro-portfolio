@@ -4,4 +4,4 @@ icon: svg-logos:react-query-icon
 name: tanstack-query
 ---
 
-Nederlands
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam

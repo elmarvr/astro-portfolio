@@ -1,16 +1,10 @@
 ---
-import Icon from 'astro-icon';
-
 export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
-  icon: string;
 }
 
 const { class: className = "", "class:list": classList, icon, ...props } = Astro.props;
 ---
 
-<a {...props} class:list={[className, classList, "text-sm transition hover:text-fuchsia-500 active:text-fuchsia-500"]}>
-  <Icon class="block sm:hidden" name={icon} size={20} />
-  <span class="hidden sm:inline" > 
-    <slot />
-  </span>
+<a {...props} class:list={[className, classList, "text-sm transition-colors hover:text-fuchsia-500 active:text-fuchsia-500 target:text-fuchsia-500"]}>
+  <slot />
 </a>

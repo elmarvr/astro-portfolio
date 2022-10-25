@@ -2,15 +2,17 @@
 import Section from "@/ui/Section.astro";
 import SectionTitle from "@/ui/SectionTitle.astro";
 import Image from "@/ui/Image.astro";
-import { Content } from "@/content/about.md"
+import {  getPageContent, t } from "@/i18n/i18n";
+
+const { Content } = getPageContent(await Astro.glob("../content/about.*.md"))[0];
 ---
 
 <Section id="about">
   <div class="mx-auto flex flex-col sm:grid sm:grid-cols-[3fr_2fr] gap-x-12 w-full max-w-[900px]">
-    <SectionTitle class="title">Wie ik ben</SectionTitle>
+    <SectionTitle> 
+      {t("about.title")}
+    </SectionTitle>
   
-
-
     <div class="content flex flex-col col-start-1 pb-16 sm:pb-0 prose prose-dark">
       <Content />
     </div>
@@ -26,22 +28,28 @@ import { Content } from "@/content/about.md"
 </Section>
 
 <script>
-import { animateInView } from "@/utils/animation";
+import { slideRight, slideUp, slideLeft, setTransparent } from "@/utils/animation";
+import { inView } from "@/utils/inView";
 
-animateInView("#about .title", {
-  opacity: [0, 1],
-  translateY: [50, 0],
-})
+const titleSelector = "#about .section-title";
+const contentSelector = "#about .content";
+const imageSelector = "#about .image";
 
-animateInView("#about .content", {
-  translateX: [-100, 0],
-  opacity: [0, 1],
-})
+setTransparent([titleSelector, contentSelector, imageSelector]);
 
-animateInView("#about .image", {
-  translateX: [100, 0],
-  opacity: [0, 1],
-})
+inView(titleSelector, ({ target }) => {
+  slideUp(target)
+});
+
+
+inView(contentSelector, ({ target }) => {
+  slideRight(target)
+});
+
+inView(imageSelector, ({ target }) => {
+  slideLeft(target)
+});
+
 </script>
 
 

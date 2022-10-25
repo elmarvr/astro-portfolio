@@ -8,7 +8,6 @@ const canvas = document.getElementById("matrix") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d")!
 
 
-
 const createSymbol = (x: number, y: number, speed: number) => {
 
   const randomSymbol = () => String.fromCharCode(0x30A0 + Math.random() * 96);
@@ -28,7 +27,7 @@ const createSymbol = (x: number, y: number, speed: number) => {
       if (t % anime.random(10, 20) === 0) {
         this.symbol = randomSymbol();
       }
-
+      
       ctx.font = "20px sans"
 
       ctx.fillStyle = this.color
@@ -139,9 +138,5 @@ inView(canvas, () => {
     reset();
   }
 })
-
-
-
-
 
 </script>

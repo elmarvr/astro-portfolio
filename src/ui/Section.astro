@@ -8,6 +8,6 @@ interface Props extends astroHTML.JSX.BaseHTMLAttributes {
 const { class: className = "", ...props} = Astro.props;
 ---
 
-<section {...props} class:list={[className, "py-24 container"]}>
+<section {...props} class:list={[className, "section py-24 container"]}>
   <slot />
 </section>

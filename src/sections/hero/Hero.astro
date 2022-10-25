@@ -1,34 +1,49 @@
 ---
 import MatrixCanvas from "./MatrixCanvas.astro";
+import { t, getPageContent } from "@/i18n/i18n";
 
+const { Content } = getPageContent(await Astro.glob("../../content/hero.*.md"))[0];
 ---
 
 <section id="hero" class="min-h-screen relative flex flex-col">
-  <div class="container absolute top-1/2 -translate-y-1/2">
+  <div class="container z-10 left-1/2 -translate-x-1/2 absolute top-1/2 -translate-y-1/2">
     <div class="inline-flex flex-col items-start gap-5 pb-16 sm:pb-0">
-      <h1 class="text-base text-fuchsia-500">Hoi, mijn naam is</h1>
+      <h1 class="text-base text-fuchsia-500">
+        {t("hero.subtitle")}.
+      </h1>
       <h2 class="text-5xl font-bold text-slate-300">Elmar van Riet.</h2>
-      <h3 class="text-5xl font-bold">Ik bouw apps voor het internet.</h3>
+      <h3 class="text-5xl font-bold">
+        {t("hero.catchphrase")}.
+      </h3>
 
-      <p class="max-w-xl pt-2 pb-6">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore necessitatibus assumenda deserunt, velit
-        debitis iure ullam nesciunt pariatur ipsam, ipsa, accusamus laborum et laboriosam ipsum sit! Aliquam
-        perferendis dolore quibusdam
-      </p>
+      <div class="max-w-xl prose prose-dark pt-2 pb-6">
+        <Content />
+      </div>
 
       <div class="relative group">
         <div class="transition-all bg-gradient-to-l from-violet-500 to-fuchsia-500 opacity-75 absolute -inset-0.5 rounded blur group-hover:opacity-100"></div>
-        <button class="relative py-3 text-gray-300 transition bg-gray-900 rounded px-7">Call to action</button>
+        <button class="relative py-3 text-gray-300 transition bg-gray-900 rounded px-7">
+          {t("hero.cta")}
+        </button>
       </div>
     </div>
   </div>
 
-
   <div class="w-1/2 ml-auto flex-1 relative">
     <MatrixCanvas />
   </div>
-
 </section>
 
 
+<script>
+import { setTransparent, slideRight } from "@/utils/animation";
 
+const containerSelector = "#hero .inline-flex";
+
+setTransparent(containerSelector);
+
+slideRight(containerSelector, {
+  delay: 500,
+})
+
+</script>

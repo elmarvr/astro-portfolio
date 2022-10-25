@@ -1,0 +1,48 @@
+---
+import {  getPageContent, t } from "@/i18n/i18n";
+import Section from "@/ui/Section.astro";
+import SectionTitle from "@/ui/SectionTitle.astro";
+import Skill, { SkillFrontmatter } from "./Skill.astro";
+
+
+const skills = getPageContent<SkillFrontmatter>(await Astro.glob("../../content/skills/*.md"));
+
+---
+
+<Section id="skills" class="py-20">
+  <SectionTitle class="sm:text-center">{t("skills.title")}</SectionTitle>
+  <div class="layout gap-8 w-full overflow-x-auto py-4 snap-x flex sm:grid sm:grid-cols-3 sm:py-0 overflow-y-hidden sm:overflow-y-visible sm:overflow-x-visible">
+    {
+      skills.map((skill) => (
+        <Skill class="item flex-shrink-0 snap-center w-9/12 sm:w-auto" {...skill.frontmatter}>
+          <skill.Content />
+        </Skill>
+      )
+    )}
+  </div>
+</Section>
+
+<script>
+import { setTransparent, slideRight, slideUp } from "@/utils/animation";
+import { inView } from "@/utils/inView";
+import anime from "animejs";
+
+const titleSelector = "#skills .section-title";
+const layoutSelector = "#skills .layout";
+
+setTransparent([titleSelector, layoutSelector]);
+
+inView(titleSelector, ({ target }) => {
+  slideRight(target)
+});
+
+inView(layoutSelector, ({ target }) => { 
+  anime.set(target, { opacity: 1 });
+
+  slideUp(target.querySelectorAll(".item"), {
+    delay: anime.stagger(100),
+  })
+});
+
+
+</script>

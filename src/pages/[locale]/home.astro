@@ -1,0 +1,73 @@
+---
+import Hero from "@/sections/hero/Hero.astro";
+import Skills from "@/sections/skills/Skills.astro"
+import About from "@/sections/About.astro";
+import Work from "@/sections/work/Work.astro";
+import Nav from "@/ui/Nav.astro";
+import NavLink from "@/ui/NavLink.astro";
+import Journey from "@/sections/Journey.astro";
+import { initI18n, t } from "@/i18n/i18n";
+import type { StaticPathParams } from "@/utils/types";
+import LinkButton from "@/ui/LinkButton.astro";
+
+export const getStaticPaths = async () => {
+  const locales = ["en", "nl"] as const;
+
+  return locales.map((locale) => {
+    return {
+      params: {
+        locale
+      },
+    }
+  });
+};
+
+export type Params = StaticPathParams<typeof getStaticPaths>
+
+const { locale } = Astro.params as Params;
+
+initI18n(locale);
+---
+
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="bg-slate-900 text-slate-400">
+    <Nav>
+      <NavLink href="#">{t("nav.hero")}</NavLink>
+      <NavLink href="#about">{t("nav.about")}</NavLink>
+      <NavLink href="#skills">{t("nav.skills")}</NavLink>
+      <NavLink href="#work">{t("nav.work")}</NavLink>
+      <!-- <NavLink icon="tabler:mail" href="#contact">{t("contact.nav")}</NavLink> -->
+
+      <LinkButton href="#">{t("nav.resume")}</LinkButton>
+    </Nav>
+
+    <main class="overflow-x-hidden">
+      <Hero />
+      <About />
+      <Skills />
+      <Journey />
+      <Work />
+    </main>
+	</body>
+</html>
+
+<script>
+
+
+window.onbeforeunload = () => {
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+
+    return;
+  };
+
+  window.scrollTo(0, 0);
+};
+</script>

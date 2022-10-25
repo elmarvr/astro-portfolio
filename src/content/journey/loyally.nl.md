@@ -1,6 +1,6 @@
 ---
-date: 2022/8/01
-title: Foo
+date: 2018/05/01
+title: Loyally
 ---
 
 lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua

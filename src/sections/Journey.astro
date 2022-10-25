@@ -2,13 +2,15 @@
 import { compareAsc } from "date-fns";
 import { groupBy } from "@/utils/groupBy";
 import Section from "@/ui/Section.astro";
+import { getPageContent } from "@/i18n/i18n";
+import SectionTitle from "@/ui/SectionTitle.astro";
 
 interface EventFrontmatter {
   title: string;
   date: string;
 }
 
-const instances = await Astro.glob<EventFrontmatter>("../content/journey/*.md");
+const instances = getPageContent(await Astro.glob<EventFrontmatter>("../content/journey/*.md"));
 
 const events = instances.map((instance) => ({
   ...instance.frontmatter,
@@ -23,29 +25,50 @@ const eventsByYear = Object.entries(groupBy(events, (item) => item.date.getFullY
 eventsByYear.sort((a, b) => compareAsc(new Date(a[0]), new Date(b[0])));
 ---
 
-
-<Section class="flex justify-center">
-  <ul class="flex flex-col">
-    {
-      eventsByYear.map(([year, events]) => (
-        <li class="flex gap-8 [&:last-child_>_ul]:pb-0">
-          <div class="flex flex-col items-end">
-            <h2 class="flex items-center w-16 justify-between after:relative after:-right-1 after:content after:block after:w-3 after:h-3 after:bg-fuchsia-500 after:rounded-full">{year}</h2>
-            <div class="flex-1 w-1 rounded bg-slate-800 my-2.5"></div>
-          </div>
-          
-          <ul class="pb-20 flex flex-col gap-12">
-            {events.map((event) => (
-              <li>
-                <h3 class="pb-2 text-slate-300 font-medium text-md">{event.title}</h3>
-                <div class="prose prose-dark">
-                  <event.Content />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </li>
-      )) 
-    }
-  </ul>
+<Section id="journey" class="flex justify-center">
+  <div>
+    <SectionTitle>Mijn geschiedenis</SectionTitle>
+    <ul class="flex flex-col">
+      {
+        eventsByYear.map(([year, events]) => (
+          <li class="event flex gap-8 [&:last-child_>_ul]:pb-0">
+            <div class="flex flex-col items-end">
+              <h2 class="flex items-center w-16 justify-between after:relative after:-right-1 after:content after:block after:w-3 after:h-3 after:bg-fuchsia-500 after:rounded-full">{year}</h2>
+              <div class="flex-1 w-1 rounded bg-slate-800 my-2.5"></div>
+            </div>
+            
+            <ul class="pb-20 flex flex-col gap-12">
+              {events.map((event) => (
+                <li>
+                  <h3 class="pb-2 text-slate-300 font-medium text-md">{event.title}</h3>
+                  <div class="prose prose-dark">
+                    <event.Content />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </li>
+        )) 
+      }
+    </ul>
+  </div>
 </Section>
+
+
+<script>
+import {  setTransparent, slideRight, slideUp } from "@/utils/animation";
+import { inView } from "@/utils/inView";
+
+const titleSelector = "#journey .section-title";
+const eventSelector = "#journey .event";
+
+setTransparent([titleSelector, eventSelector]);
+
+inView(titleSelector, ({ target }) => {
+  slideRight(target);
+});
+
+inView(eventSelector, ({ target }) => {
+  slideUp(target);
+}, { amount: 0.8 });
+</script>

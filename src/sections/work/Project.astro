@@ -1,0 +1,73 @@
+---
+import { getPageContent, t } from '@/i18n/i18n';
+import Icon from 'astro-icon';
+import Image from '@/ui/Image.astro';
+import type { SkillFrontmatter } from "../skills/Skill.astro";
+import LinkButton from '@/ui/LinkButton.astro';
+
+export interface ProjectFrontmatter {
+  title: string;
+  siteUrl: string;
+  imageUrl: string;
+  githubUrl?: string;
+  skills: string[];
+}
+
+export interface ProjectProps extends ProjectFrontmatter, Omit<astroHTML.JSX.HTMLAttributes, "title"> {
+  reverse?: boolean;
+}
+
+type Props = ProjectProps;
+
+const { title, imageUrl, siteUrl, reverse, skills, ...props } = Astro.props;
+
+
+const skillContents = getPageContent(await Astro.glob<SkillFrontmatter>('../../content/skills/*.md'));
+const skillTags = skillContents.filter((instance) => skills.includes(instance.frontmatter.name));
+---
+
+<div
+  {...props}
+  class:list={["project flex flex-col-reverse sm:flex-row gap-x-12 gap-y-12", reverse && "sm:flex-row-reverse"]}
+>
+  <div class="left flex-1">
+    <Image
+      alt={`Foto van ${title}`}
+      src={imageUrl}
+      height={1200}
+      aspectRatio="4:2"
+      class:list={[
+        "transition",
+        reverse ? "[&:not(:hover)]:sm:flip-right" : "[&:not(:hover)]:sm:flip-left"
+      ]}
+    />
+  </div>
+
+  <div  class="right flex-1 gap-4 flex flex-col items-start">
+    <h3 class="text-xl text-slate-300 font-bold">{title}</h3>
+
+    
+    <div class="prose prose-dark">
+      <slot />
+    </div>
+
+    <div class="flex gap-4 flex-wrap pt-2">
+      {skillTags.map((tag) => (
+        <div class="text-slate-300 font-medium rounded  gap-2 flex items-center">
+          <Icon name={tag.frontmatter.icon} size="16" />
+          {tag.frontmatter.title}
+        </div>
+      ))}
+    </div>
+
+    <div class="flex-1" />
+
+    <LinkButton
+      href={siteUrl}    
+    >
+      <Icon slot="icon" size={20} pack="tabler" name="external-link" />
+      {t("work.project.to-website")}
+    </LinkButton>
+  </div>
+</div>
+

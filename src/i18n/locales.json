@@ -1,0 +1,63 @@
+{
+  "en": {
+    "nav": {
+      "hero": "Home",
+      "about": "About",
+      "journey": "Journey",
+      "skills": "Skills",
+      "work": "Projects",
+      "resume": "Resume"
+    },
+
+    "hero": {
+      "subtitle": "My name is",
+      "catchphrase": "I build things for the web",
+      "cta": "Get in touch"
+    },
+    "about": {
+      "title": "Who I am"
+    },
+    "journey": {
+      "title": "Journey"
+    },
+    "skills": {
+      "title": "My skills"
+    },
+    "work": {
+      "title": "What I made",
+      "project": {
+        "to-website": "To website"
+      }
+    }
+  },
+  "nl": {
+    "nav": {
+      "hero": "Home",
+      "about": "Over mij",
+      "journey": "Ervaring",
+      "skills": "Skills",
+      "work": "Projecten",
+      "resume": "CV"
+    },
+    "hero": {
+      "subtitle": "Mijn naam is",
+      "catchphrase": "Ik bouw apps voor het internet",
+      "cta": "Neem contact op"
+    },
+    "about": {
+      "title": "Wie ik ben"
+    },
+    "journey": {
+      "title": "Ervaring"
+    },
+    "skills": {
+      "title": "Mijn Skills"
+    },
+    "work": {
+      "title": "Wat ik gemaakt heb",
+      "project": {
+        "to-website": "Naar website"
+      }
+    }
+  }
+}
