@@ -1,11 +1,15 @@
 ---
 import LanguageSelect from "@/i18n/LanguageSelect.astro";
 import Icon from "astro-icon";
+import NavLink from "./NavLink.astro";
 ---
 
 <nav class="fixed z-20 w-full backdrop-blur-md">
   <div class="flex px-8 items-center justify-between w-full h-14 py-2.5 sm:px-12 border-b border-b-gray-800">
-    <div class="logo">E</div>
+    <NavLink href="#">
+      <Icon height={16} name="elmar-logo" />
+    </NavLink>
+
     
     <div class="flex items-center gap-6 sm:gap-12">
 
@@ -33,6 +37,7 @@ import  { slideDown, slideRight } from "@/utils/animation"
 import { querySelector } from "@/utils/querySelector";
 import anime from "animejs";
 
+
 slideRight(".logo", {
   duration: 500,
 })
@@ -43,12 +48,11 @@ slideDown(".nav-items > *", {
 });
 
 
-const menuItems = querySelector(".menu-items");
 const openIcon = querySelector("#open-icon");
 const closeIcon = querySelector("#close-icon");
+const menuItems = querySelector(".menu-items");
 
-
-const timeline = anime.timeline({
+const openMenu = anime.timeline({
   autoplay: false
 })
 .add({
@@ -111,14 +115,34 @@ const timeline = anime.timeline({
 }, 0);
 
 
+const close = () => {
+  if (!openMenu.reversed) {
+    openMenu.reverse();
+  }
+  openMenu.play();
+};
+
+
+const toggle = () => {
+  if (openMenu.began) {
+    openMenu.reverse();
+  } 
+  
+  openMenu.play();
+};
+
+
 const menuButton = querySelector("#menu-button");
 
 menuButton.addEventListener("click", () => {
-  if (timeline.began) {
-    timeline.reverse();
-  } 
-  
-  timeline.play();
+  toggle();
 });
+
+[...menuItems.children].forEach((item) => {
+  item.addEventListener("click", () => {
+    close();
+  });
+});
+
 
 </script>

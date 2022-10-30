@@ -1,6 +1,5 @@
-import anime, { AnimeInstanceParams } from "animejs";
+import anime from "animejs";
 import type { AnimeAnimParams } from "animejs";
-import { inView } from "./inView";
 
 const DEFAULT_TRANSITION = {
   duration: 1000,
