@@ -1,6 +1,11 @@
-As you can see, the majority of the pages are organised in to folders much like you might organise files on your own computer.
-This content structure is critical since it determines how our URLs are structured and tells Eleventy where to find different types of content.
+Hi I'm Elmar, I'm 23 years old and I live in Rotterdam.
+When I was twelve I wanted to make my own games and that's where my passion for programming started.
+Now that I'm 23 years old, making games has been replaced by developing and designing web apps and websites.
 
-- test
-- test123
-- estse
+Currently I am working at Turff as lead front-end developer and I have developed apps such as:
+
+- the Turff webshop in Next.js
+- a dashboard in vue 3
+- a ui library with 50+ components also in vue 3
+
+But what I like to do the most is Typescript and making end-2-end typesafe apps (and I still have a girlfriend 😉)

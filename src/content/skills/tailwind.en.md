@@ -4,4 +4,4 @@ icon: svg-logos:tailwindcss-icon
 name: tailwind
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+With TailwindCSS I can develop webapps blazingly fast. I use Tailwind when I can, in all my projects.

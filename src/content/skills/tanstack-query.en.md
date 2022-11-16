@@ -4,4 +4,4 @@ icon: svg-logos:react-query-icon
 name: tanstack-query
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+I can not recommend TanStack Query enough. It ensures that the server and the client are always in sync and that is a better experience for me and the user.

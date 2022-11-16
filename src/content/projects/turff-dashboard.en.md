@@ -2,7 +2,8 @@
 title: Turff dashboard
 siteUrl: https://web.turff.nl
 imageUrl: turff-dashboard.png
-skills: [typescript, vue3, tanstack-query, tailwind]
+skills: [typescript, vue3, tanstack-query, tailwind, vite]
 ---
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ratione blanditiis, odio eum optio molestiae provident beatae quis, eaque vel facere quisquam molestias nesciunt facilis porro fuga aliquam, quia fugit.
+A detailed dashboard for managing the [Turff](https://turff.nl) tablet. With this dashboard you can manage residents and groups, reconcile costs, see the number of tallied products, etc.
+The Turff tablet hangs in more than a thousand student houses that all use this dashboard.

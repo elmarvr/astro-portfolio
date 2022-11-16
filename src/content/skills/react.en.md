@@ -4,4 +4,4 @@ icon: svg-logos:react
 name: react
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+The combination of hooks and JSX make React my favorite front-end framework.

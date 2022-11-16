@@ -1,7 +1,6 @@
 ---
-date: 2021/08/01
 title: Turff
+date: 2021/01/01
 ---
 
-lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+Hired at Turff as a front-end developer. [Turff](https://turff.nl) is a small student company that makes tablets for refrigerators to keep track of the number of beers that have been consumed.

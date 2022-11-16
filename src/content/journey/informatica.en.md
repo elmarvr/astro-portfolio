@@ -1,7 +1,6 @@
 ---
-date: 2022/7/01
-title: Informatica
+date: 2022/02/01
+title: Informatics
 ---
 
-lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+Next to working at Turff I started my study informatics at the Open Universiteit.

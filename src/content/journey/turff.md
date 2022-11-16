@@ -1,7 +1,6 @@
 ---
-date: 2021/08/01
 title: Turff
+date: 2021/01/01
 ---
 
-lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+Aangenomen bij Turff als front-end developer. [Turff](https://turff.nl) is een klein studentenbedrijf dat tablets maakt voor op koelkasten om zo het aantal gedronken bier bij te kunnen houden.

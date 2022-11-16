@@ -38,10 +38,10 @@ eventsByYear.sort((a, b) => compareAsc(new Date(a[0]), new Date(b[0])));
               <div class="flex-1 w-1 rounded bg-slate-800 my-2.5"></div>
             </div>
             
-            <ul class="pb-20 flex flex-col gap-12">
+            <ul class="pb-20 flex flex-col gap-8">
               {events.map((event) => (
                 <li>
-                  <h3 class="pb-2 text-slate-300 font-medium text-md">{event.title}</h3>
+                  <h3 class="text-slate-300 font-medium text-md pb-1">{event.title}</h3>
                   <Prose>
                     <event.Content />
                   </Prose>

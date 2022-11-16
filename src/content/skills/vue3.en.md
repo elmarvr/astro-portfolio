@@ -4,4 +4,4 @@ icon: svg-logos:vue
 name: vue3
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+Recently I upgraded the Turff dashboard to Vue 3 and typescript. By making a ui library I learned a lot about the inner workings of Vue.

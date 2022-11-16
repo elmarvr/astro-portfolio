@@ -1,7 +1,7 @@
 ---
-date: 2018/05/01
+date: 2019/02/01
 title: Loyally
 ---
 
-lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+During my study at YoungCapital I started working at Loyally. A company that specialized in integrations for CRM systems (such as AFAS, Zendesk, Salesforce, etc.).
+The codebase was hell, one app.js file with thousands of lines of code.

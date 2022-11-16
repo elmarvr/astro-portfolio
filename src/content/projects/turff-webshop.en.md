@@ -5,4 +5,5 @@ imageUrl: turff-shop.png
 skills: [react, nextjs, tanstack-query, typescript]
 ---
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ratione blanditiis, odio eum optio molestiae provident beatae quis, eaque vel facere quisquam molestias nesciunt facilis porro fuga aliquam, quia fugit.
+This project is a webshop that I developed for [Turff](https://turff.nl) for the delivery of beer and other drinks in different regions in the Netherlands.
+The first version of this webshop had to be done quickly and I developed it in a month. Via this webshop dozens of orders are placed every day.

@@ -1,7 +1,6 @@
 ---
-date: 2022/7/01
+date: 2022/02/01
 title: Informatica
 ---
 
-lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+Naast werken bij Turff ben ik gestart aan mijn studie informatica aan de Open Universiteit.
