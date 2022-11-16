@@ -1,0 +1,19 @@
+---
+import { t } from "@/i18n/i18n";
+import LinkButton from "@/ui/LinkButton.astro";
+import Section from "@/ui/Section.astro"
+import SectionTitle from "@/ui/SectionTitle.astro";
+import { Icon } from "astro-icon"
+
+---
+
+<Section id="contact" class="flex flex-col items-center pb-32">
+  <SectionTitle class="pb-14">{t("contact.title")}</SectionTitle>
+  <p class="max-w-md text-center pb-8">{t("contact.description")}</p>
+  
+  <LinkButton variant="filled">
+    <Icon slot="icon" pack="tabler" name="mail" width={16} />
+
+    {t("contact.button")}
+  </LinkButton>
+</Section>

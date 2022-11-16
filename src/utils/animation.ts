@@ -1,5 +1,6 @@
 import anime from "animejs";
 import type { AnimeAnimParams } from "animejs";
+import { ElementOrSelector, inView, InViewOptions } from "./inView";
 
 const DEFAULT_TRANSITION = {
   duration: 1000,

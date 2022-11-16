@@ -3,8 +3,9 @@ import Section from "@/ui/Section.astro";
 import SectionTitle from "@/ui/SectionTitle.astro";
 import Image from "@/ui/Image.astro";
 import {  getPageContent, t } from "@/i18n/i18n";
+import Prose from "@/ui/Prose.astro";
 
-const { Content } = getPageContent(await Astro.glob("../content/about.*.md"))[0];
+const { Content } = getPageContent(await Astro.glob("../content/about**.md"))[0];
 ---
 
 <Section id="about">
@@ -13,16 +14,17 @@ const { Content } = getPageContent(await Astro.glob("../content/about.*.md"))[0]
       {t("about.title")}
     </SectionTitle>
   
-    <div class="content flex flex-col col-start-1 pb-16 sm:pb-0 prose prose-dark">
+    <Prose class="content flex flex-col col-start-1 pb-16 sm:pb-0">
       <Content />
-    </div>
+    </Prose>
 
     <Image
-      height={1200}
+      height={300}
       aspectRatio="1:1"
       class="image aspect-square w-full"
       alt="portret van Elmar"
       src="https://source.unsplash.com/900x900/?portrait"
+
     />
   </div>
 </Section>

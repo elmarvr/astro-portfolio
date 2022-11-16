@@ -1,0 +1,15 @@
+---
+export interface ProseProps extends astroHTML.JSX.HTMLAttributes {
+
+}
+
+type Props = ProseProps;
+
+const { class: className, "class:list":classList, ...props } = Astro.props;
+
+---
+
+
+<div class:list={[className, classList, "prose prose-dark"]} {...props}>
+  <slot />
+</div>

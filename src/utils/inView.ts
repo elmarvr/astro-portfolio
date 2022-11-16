@@ -1,3 +1,5 @@
+import { isFunction } from "./isFunction";
+
 export type ElementOrSelector = Element | Element[] | NodeListOf<Element> | string;
 
 export type ViewChangeHandler = (entry: IntersectionObserverEntry) => void;
@@ -23,10 +25,6 @@ export function resolveElements(elements: ElementOrSelector): Element[] {
   }
 
   return [...elements];
-}
-
-export function isFunction<T extends (...args: any[]) => any>(value: unknown): value is Exclude<T, void> {
-  return typeof value === "function";
 }
 
 export function inView(

@@ -4,9 +4,10 @@
       "hero": "Home",
       "about": "About",
       "journey": "Journey",
-      "skills": "Skills",
+      "skills": "Stack",
       "work": "Projects",
-      "resume": "Resume"
+      "resume": "Resume",
+      "contact": "Contact"
     },
 
     "hero": {
@@ -21,26 +22,34 @@
       "title": "Journey"
     },
     "skills": {
-      "title": "My skills"
+      "title": "My stack"
     },
     "work": {
       "title": "What I made",
       "project": {
         "to-website": "To website"
       }
-    }
+    },
+    "contact": {
+      "title": "Get in touch",
+      "description": "I am momentarily looking for work, so if you have a opportunity for me, please get in touch.",
+      "button": "Stuur een mail"
+    },
+
+    "leave-a-star": "Like the website? Leave a star on Github"
   },
   "nl": {
     "nav": {
       "hero": "Home",
       "about": "Over mij",
       "journey": "Ervaring",
-      "skills": "Skills",
+      "skills": "Stack",
       "work": "Projecten",
-      "resume": "CV"
+      "resume": "CV",
+      "contact": "Contact"
     },
     "hero": {
-      "subtitle": "Mijn naam is",
+      "subtitle": "Hallo ik ben,",
       "catchphrase": "Ik bouw apps voor het internet",
       "cta": "Neem contact op"
     },
@@ -51,13 +60,21 @@
       "title": "Ervaring"
     },
     "skills": {
-      "title": "Mijn Skills"
+      "title": "Mijn stack"
     },
     "work": {
       "title": "Wat ik gemaakt heb",
       "project": {
         "to-website": "Naar website"
       }
-    }
+    },
+
+    "contact": {
+      "title": "Neem contact op",
+      "description": "Ik ben momenteel op zoek naar werk, dus als je een leuke vacature hebt, neem dan vooral contact met mij op.",
+      "button": "Stuur een mail"
+    },
+
+    "leave-a-star": "Vind je dit een mooie website? Laat een ster achter op Github"
   }
 }

@@ -3,12 +3,14 @@ interface Props {
   class?: string;
 }
 
-const { class: className = "" } = Astro.props;
+const { class: className = "", "class:list": classList, ...props } = Astro.props;
 ---
 
 <h2
+  {...props}
   class:list={[
     className,
+    classList,
     "section-title pb-24 text-2xl font-medium tracking-wide text-slate-100 before:content-['//_'] before:text-fuchsia-500"
   ]}>
   <slot />

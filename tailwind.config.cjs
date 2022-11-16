@@ -8,6 +8,7 @@ module.exports = {
           css: {
             "--tw-prose-body": theme("colors.slate.400"),
             "--tw-prose-bullets": theme("colors.fuchsia.500"),
+            "--tw-prose-links": theme("colors.fuchsia.500"),
           },
         },
       }),

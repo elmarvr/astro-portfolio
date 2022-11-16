@@ -4,6 +4,7 @@ import { groupBy } from "@/utils/groupBy";
 import Section from "@/ui/Section.astro";
 import { getPageContent } from "@/i18n/i18n";
 import SectionTitle from "@/ui/SectionTitle.astro";
+import Prose from "@/ui/Prose.astro";
 
 interface EventFrontmatter {
   title: string;
@@ -41,9 +42,9 @@ eventsByYear.sort((a, b) => compareAsc(new Date(a[0]), new Date(b[0])));
               {events.map((event) => (
                 <li>
                   <h3 class="pb-2 text-slate-300 font-medium text-md">{event.title}</h3>
-                  <div class="prose prose-dark">
+                  <Prose>
                     <event.Content />
-                  </div>
+                  </Prose>
                 </li>
               ))}
             </ul>

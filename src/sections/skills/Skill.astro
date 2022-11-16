@@ -1,4 +1,5 @@
 ---
+import Prose from "@/ui/Prose.astro";
 import { Icon } from "astro-icon";
 
 export interface SkillFrontmatter {
@@ -25,7 +26,10 @@ const { icon, title, class: className = "" } = Astro.props;
   <Icon name={icon} size={36} />
 
   <div class="pt-2">
-    <p class="text-slate-300 font-medium pb-1">{title}</p>
-    <slot />
+    <p class="text-slate-300 text font-medium pb-1">{title}</p>
+
+    <Prose class="prose-sm pb-2">
+      <slot />
+    </Prose>
   </div>
 </div>

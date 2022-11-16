@@ -4,6 +4,7 @@ import Icon from 'astro-icon';
 import Image from '@/ui/Image.astro';
 import type { SkillFrontmatter } from "../skills/Skill.astro";
 import LinkButton from '@/ui/LinkButton.astro';
+import Prose from '@/ui/Prose.astro';
 
 export interface ProjectFrontmatter {
   title: string;
@@ -28,7 +29,7 @@ const skillTags = skillContents.filter((instance) => skills.includes(instance.fr
 
 <div
   {...props}
-  class:list={["project flex flex-col-reverse sm:flex-row gap-x-12 gap-y-12", reverse && "sm:flex-row-reverse"]}
+  class:list={["project flex flex-col-reverse sm:flex-row gap-x-12 gap-y-12", {"sm:flex-row-reverse": reverse}]}
 >
   <div class="left flex-1">
     <Image
@@ -47,9 +48,9 @@ const skillTags = skillContents.filter((instance) => skills.includes(instance.fr
     <h3 class="text-xl text-slate-300 font-bold">{title}</h3>
 
     
-    <div class="prose prose-dark">
+    <Prose>
       <slot />
-    </div>
+    </Prose>
 
     <div class="flex gap-4 flex-wrap pt-2">
       {skillTags.map((tag) => (
