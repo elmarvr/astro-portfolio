@@ -2,7 +2,7 @@
 title: XState Memory
 siteUrl: https://xstate-memory.netlify.app
 githubUrl: https://github.com/elmarvr/xstate-memory
-imageUrl: xstate-memory.png
+imageUrl: /assets/xstate-memory.png
 skills: [react, tailwindcss, typescript]
 ---
 

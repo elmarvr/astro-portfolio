@@ -1,7 +1,7 @@
 ---
 title: Turff Webshop
 siteUrl: https://delivery.turff.nl
-imageUrl: turff-shop.png
+imageUrl: /assets/turff-shop.png
 skills: [react, nextjs, tanstack-query, typescript]
 ---
 

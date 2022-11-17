@@ -1,7 +1,7 @@
 ---
 title: Turff dashboard
 siteUrl: https://web.turff.nl
-imageUrl: turff-dashboard.png
+imageUrl: /assets/turff-dashboard.png
 skills: [typescript, vue3, tanstack-query, tailwind, vite]
 ---
 

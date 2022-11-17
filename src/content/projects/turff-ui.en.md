@@ -1,6 +1,6 @@
 ---
 title: Turff UI
-imageUrl: turff-ui.png
+imageUrl: /assets/turff-ui.png
 skills: [typescript, vue3, tailwind, vite]
 ---
 
