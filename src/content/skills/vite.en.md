@@ -2,6 +2,7 @@
 icon: svg-logos:vitejs
 name: vite
 title: Vite
+url: https://vitejs.dev
 ---
 
-Vite is a bundler that is very easy to configure and very fast. That is why Vite is my favorite bundler.
+Vite is a bundler that is very easy to configure and very fast.

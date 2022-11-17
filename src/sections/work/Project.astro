@@ -63,12 +63,16 @@ const skillTags = skillContents.filter((instance) => skills.includes(instance.fr
 
     <div class="flex-1" />
 
-    <LinkButton
-      href={siteUrl}    
-    >
-      <Icon slot="icon" size={20} pack="tabler" name="external-link" />
-      {t("work.project.to-website")}
-    </LinkButton>
+    {
+      siteUrl 
+      ? <LinkButton
+          href={siteUrl}    
+        >
+          <Icon slot="icon" size={20} pack="tabler" name="external-link" />
+          {t("work.project.to-website")}
+        </LinkButton> 
+      : null
+    }
   </div>
 </div>
 

@@ -19,7 +19,7 @@
       "title": "Who I am"
     },
     "journey": {
-      "title": "Journey"
+      "title": "My Journey"
     },
     "skills": {
       "title": "My stack"
@@ -32,8 +32,8 @@
     },
     "contact": {
       "title": "Get in touch",
-      "description": "I am momentarily looking for work, so if you have a opportunity for me, please get in touch.",
-      "button": "Stuur een mail"
+      "description": "I am momentarily looking for another job to develop my skills even more, so if you have an opportunity for me, please get in touch.",
+      "button": "Send a mail"
     },
 
     "leave-a-star": "Like the website? Leave a star on Github"
@@ -42,7 +42,7 @@
     "nav": {
       "hero": "Home",
       "about": "Over mij",
-      "journey": "Ervaring",
+      "journey": "Geschiedenis",
       "skills": "Stack",
       "work": "Projecten",
       "resume": "CV",
@@ -57,7 +57,7 @@
       "title": "Wie ik ben"
     },
     "journey": {
-      "title": "Ervaring"
+      "title": "Mijn geschiedenis"
     },
     "skills": {
       "title": "Mijn stack"
@@ -71,7 +71,7 @@
 
     "contact": {
       "title": "Neem contact op",
-      "description": "Ik ben momenteel op zoek naar werk, dus als je een leuke vacature hebt, neem dan vooral contact met mij op.",
+      "description": "Ik ben momenteel op zoek naar een nieuwe baan om mij zelf nog meer te ontwikkelen, dus als je een leuke vacature hebt, neem dan vooral contact met mij op.",
       "button": "Stuur een mail"
     },
 

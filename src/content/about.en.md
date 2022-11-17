@@ -6,6 +6,6 @@ Currently I am working at Turff as lead front-end developer and I have developed
 
 - the Turff webshop in Next.js
 - a dashboard in vue 3
-- a ui library with 50+ components also in vue 3
+- a UI library with 50+ components also in vue 3
 
-But what I like to do the most is Typescript and making end-2-end typesafe apps (and I still have a girlfriend 😉)
+But what I like to do most is Typescript and making end-2-end typesafe apps (and I still have a girlfriend 😉)

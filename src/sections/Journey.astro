@@ -2,7 +2,7 @@
 import { compareAsc } from "date-fns";
 import { groupBy } from "@/utils/groupBy";
 import Section from "@/ui/Section.astro";
-import { getPageContent } from "@/i18n/i18n";
+import { getPageContent, t } from "@/i18n/i18n";
 import SectionTitle from "@/ui/SectionTitle.astro";
 import Prose from "@/ui/Prose.astro";
 
@@ -28,7 +28,7 @@ eventsByYear.sort((a, b) => compareAsc(new Date(a[0]), new Date(b[0])));
 
 <Section id="journey" class="flex justify-center">
   <div>
-    <SectionTitle>Mijn geschiedenis</SectionTitle>
+    <SectionTitle>{t("journey.title")}</SectionTitle>
     <ul class="flex flex-col">
       {
         eventsByYear.map(([year, events]) => (
