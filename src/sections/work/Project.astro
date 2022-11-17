@@ -20,7 +20,7 @@ export interface ProjectProps extends ProjectFrontmatter, Omit<astroHTML.JSX.HTM
 
 type Props = ProjectProps;
 
-const { title, imageUrl, siteUrl, reverse, skills, ...props } = Astro.props;
+const { title, imageUrl, siteUrl, reverse, skills, githubUrl, ...props } = Astro.props;
 
 
 const skillContents = getPageContent(await Astro.glob<SkillFrontmatter>('../../content/skills/*.md'));
@@ -63,16 +63,26 @@ const skillTags = skillContents.filter((instance) => skills.includes(instance.fr
 
     <div class="flex-1" />
 
-    {
-      siteUrl 
-      ? <LinkButton
-          href={siteUrl}    
-        >
-          <Icon slot="icon" size={20} pack="tabler" name="external-link" />
-          {t("work.project.to-website")}
-        </LinkButton> 
-      : null
-    }
+    <div class="flex gap-4 items-center">
+      {
+        siteUrl 
+        ? <LinkButton
+            href={siteUrl}    
+          >
+            <Icon slot="icon" size={20} pack="tabler" name="external-link" />
+            {t("work.project.to-website")}
+          </LinkButton> 
+        : null
+      }
+
+      {
+        githubUrl 
+        ? <LinkButton class="min-w-0" href={githubUrl}>
+            <Icon size={20} pack="tabler" name="brand-github" />
+          </LinkButton>   
+        : null
+      }
+    </div>
   </div>
 </div>
 
