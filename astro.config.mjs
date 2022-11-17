@@ -14,7 +14,7 @@ export default defineConfig({
   ],
   vite: {
     ssr: {
-      // external: ["svgo"],
+      external: ["svgo"],
     },
   },
 });
