@@ -10,7 +10,8 @@ import { initI18n, t } from "@/i18n/i18n";
 import type { StaticPathParams } from "@/utils/types";
 import LinkButton from "@/ui/LinkButton.astro";
 import Contact from "@/sections/Contact.astro";
-import { Icon } from "astro-icon";
+import resumeUrl from "../../../assets/resume.pdf";
+
 
 export const getStaticPaths = async () => {
   const locales = ["en", "nl"] as const;
@@ -47,7 +48,7 @@ initI18n(locale);
       <NavLink href="#work">{t("nav.work")}</NavLink>
       <NavLink href="#contact">{t("nav.contact")}</NavLink>
 
-      <!-- <LinkButton href="#">{t("nav.resume")}</LinkButton> -->
+      <LinkButton href={resumeUrl}>{t("nav.resume")}</LinkButton>
     </Nav>
 
     <main class="overflow-x-hidden">
