@@ -10,8 +10,7 @@ import { initI18n, t } from "@/i18n/i18n";
 import type { StaticPathParams } from "@/utils/types";
 import LinkButton from "@/ui/LinkButton.astro";
 import Contact from "@/sections/Contact.astro";
-import resumeUrl from "../../../assets/resume.pdf";
-
+import resumeUrl from "../../../public/assets/resume.pdf";
 
 export const getStaticPaths = async () => {
   const locales = ["en", "nl"] as const;
@@ -63,12 +62,7 @@ initI18n(locale);
       <div class="flex flex-col items-center w-full pb-8 text-xs">
         <a href="https://github.com/elmarvr/astro-portfolio" class="hover:text-fuchsia-500 transition">{t("leave-a-star")}</a>
       </div>
-
-
-
     </main>
-
-
 	</body>
 </html>
 
